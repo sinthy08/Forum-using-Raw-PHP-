@@ -188,8 +188,13 @@ function test_input($data)
 
 		if(mysqli_query($con, $sql))
 		{
-		echo '<span style="color:#ffff80; margin-left:300px;"><b>Sign up successful...Please log in now...</b> </span>';
+		//echo '<span style="color:#ffff80; margin-left:300px;"><b>Sign up successful...Please log in now...</b> </span>';
 			//return true;
+		
+	
+			
+    		header("Location: signres.php");
+    		
 		}		
 
 		mysqli_close($con);
