@@ -123,28 +123,28 @@ function test_input($data)
 
 		<tr>
 			<th>Name *</th>
-			<th> <input type="text" name="uname" value="<?php echo $uname;?>" minlength=6 maxlength= 15> </th>
-			<th><span class="error"><?php echo $unameErr;?></span></th>
+			<th> <input type="text" name="uname" value="<?php echo $uname;?>"> </th>
+			<th><span class="nameerror"><?php echo $unameErr;?></span></th>
 
 		</tr>
 
 		<tr>
 			<th>Username *</th>
-			<th> <input type="text" name="username" value="<?php echo $username;?>" minlength=6 maxlength= 15> </th>
-			<th><span class="error"><?php echo $usernameErr;?></span></th>
+			<th> <input type="text" name="username" value="<?php echo $username;?>"> </th>
+			<th><span class="usernameerror"><?php echo $usernameErr;?></span></th>
 
 		</tr>
 
 		<tr>
 			<th>Email *</th>
 			<th><input type="text" name="Email" value="<?php echo $Email;?>"></th>
-  			<th><span class="error"><?php echo $EmailErr;?></span></th>
+  			<th><span class="emailerror"><?php echo $EmailErr;?></span></th>
 		</tr>
 		
 		<tr>
 			<th>Password *</th>
-			<th><input type="Password" name="Password" value="<?php echo $Password;?>" minlength= 6 ></th>
-  			<th><span class="error"><?php echo $PasswordErr;?></span></th>
+			<th><input type="Password" name="Password" value="<?php echo $Password;?>"></th>
+  			<th><span class="passworderror"><?php echo $PasswordErr;?></span></th>
 		</tr>
 		
 		
@@ -153,7 +153,7 @@ function test_input($data)
 			<th>Date of Birth *</th>
 
 			<th style="padding-right: 0px; padding-left: 0px; margin-left: 0px; margin-right: 0px"><input type="datetime-local" name="dob" onchange="console.log(this.value.split('T')[0]);" value="<?php echo $dob;?>"></th>
-  			<th><span class="error"><?php echo $dobErr;?></span></th>
+  			<th><span class="doberror"><?php echo $dobErr;?></span></th>
 		</tr>
 		
 
@@ -162,7 +162,7 @@ function test_input($data)
 			<th><input type="radio" name="gender" value="M">Male  
 			<input type="radio" name="gender" value="F">Female
 			<input type="radio" name="gender" value="O">Other </th>
-			<th><span class="error"><?php echo $genderErr;?></span></th>
+			<th><span class="gendererror"><?php echo $genderErr;?></span></th>
 		</tr>
 		
 
@@ -180,7 +180,7 @@ function test_input($data)
 
 		if($uname && $username && $Password && $Email && $dob && $gender ==!NULL)
 		{
-				
+
 		$sql= "INSERT into users (uname, username, Email, Password, dob, gender) 
 		VALUES ('$uname','$username', '$Email', '$Password', '$dob', '$gender')";
 		
@@ -188,13 +188,11 @@ function test_input($data)
 
 		if(mysqli_query($con, $sql))
 		{
-		//echo '<span style="color:#ffff80; margin-left:300px;"><b>Sign up successful...Please log in now...</b> </span>';
-			//return true;
-		
 	
 			
     		header("Location: signres.php");
     		
+
 		}		
 
 		mysqli_close($con);
